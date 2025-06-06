@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Takiy Cusco - Escuela de Canto</title>
+    <!-- Espacio para CSS -->
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --dark-gold: #B8860B;
+            --light-gold: #F5DEB3;
+            --black: #000000;
+            --dark-brown: #3A2A19;
+            --light-brown: #8B5A2B;
+            --off-white: #F5F5F5;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--off-white);
+            color: var(--dark-brown);
+        }
+        
+        .header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/api/placeholder/1200/500');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            position: relative;
+            border-bottom: 5px solid var(--gold);
+        }
+        
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        
+        .logo {
+            max-width: 300px;
+            height: 200px;
+            height: auto;
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--gold);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .slogan {
+            font-style: italic;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--light-gold);
+        }
+        
+        .inca-border {
+            background-image: linear-gradient(to right, var(--gold), var(--dark-gold), var(--gold));
+            height: 20px;
+            position: relative;
+        }
+        
+        .inca-pattern {
+            background-color: var(--gold);
+            height: 15px;
+            margin: 1rem 0;
+            background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, var(--dark-gold) 10px, var(--dark-gold) 20px);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-left: 5px solid var(--gold);
+        }
+        
+        .section h2 {
+            color: var(--dark-brown);
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-us {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            background: url('/api/placeholder/600/400');
+            background-size: cover;
+            background-position: center;
+            border-radius: 5px;
+            height: 300px;
+            border: 3px solid var(--gold);
+        }
+        
+        .class-card {
+            background-color: var(--off-white);
+            border-radius: 5px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 3px solid var(--gold);
+            transition: transform 0.3s ease;
+        }
+        
+        .class-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+        
+        .class-card h3 {
+            color: var(--dark-brown);
+            margin-bottom: 0.5rem;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .teacher-card {
+            background-color: var(--off-white);
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .teacher-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .teacher-img {
+            height: 400px;
+            background: url('/api/placeholder/300/200');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .teacher-info {
+            padding: 1.5rem;
+        }
+        
+        .teacher-info h3 {
+            color: var(--dark-brown);
+            margin-bottom: 0.5rem;
+        }
+        
+        .schedule {
+            overflow-x: auto;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: var(--gold);
+            color: var(--black);
+        }
+        
+        tr:nth-child(even) {
+            background-color: var(--off-white);
+        }
+        
+        .cta {
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('/api/placeholder/1200/400');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+            margin-top: 2rem;
+        }
+        
+        .cta h2 {
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--black);
+            font-weight: bold;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+        
+        .btn:hover {
+            background-color: var(--dark-gold);
+            transform: scale(1.05);
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        
+        input, textarea, select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        textarea {
+            height: 150px;
+        }
+        
+        footer {
+            background-color: var(--black);
+            color: var(--gold);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        .social-media {
+            margin: 1rem 0;
+        }
+        
+        .social-media a {
+            color: var(--gold);
+            margin: 0 10px;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+        
+        .footer-links {
+            margin: 1rem 0;
+        }
+        
+        .footer-links a {
+            color: var(--light-gold);
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .section {
+                padding: 1rem;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+            .chatbot-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--gold);
+            border: none;
+            border-radius: 50%;
+            padding: 10px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .chatbot-container {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 300px;
+            background-color: white;
+            border: 1px solid var(--gold);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+
+        .chatbot-header {
+            background-color: var(--gold);
+            color: var(--black);
+            padding: 10px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chatbot-close {
+            background: none;
+            border: none;
+            color: var(--black);
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .chatbot-messages {
+            height: 200px;
+            overflow-y: auto;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .chatbot-input {
+            display: flex;
+            padding: 10px;
+        }
+
+        .chatbot-input input {
+            flex: 1;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .chatbot-input button {
+            background-color: var(--gold);
+            color: var(--black);
+            border: none;
+            padding: 5px 10px;
+            margin-left: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .chatbot-input button:hover {
+            background-color: var(--dark-gold);
+        }
+        .floating-cta {
+          position: fixed;
+          bottom: 20px;
+          left: 20px;
+          background-color: var(--gold);
+          color: var(--black);
+          padding: 15px 20px;
+          border-radius: 5px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          z-index: 1000;
+      }
+      .class-card:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+          transition: all 0.3s ease;
+      }
+      .about-imageprograms {
+            flex: 1;
+            min-width: 25px;
+            background: url('/api/placeholder/600/400');
+            background-size: cover;
+            background-position: center;
+            border-radius: 5px;
+            height: 400px;
+            border: 3px solid var(--gold);
+      }
+      html {
+          scroll-behavior: smooth;
+      }
+    </style>
+</head>
+<body>
+    <!-- Header con id "inicio" -->
+    <header id="inicio" class="header">
+        <div class="logo-container">
+            <div class="logo">
+                <img src="https://i.postimg.cc/fRm4mwBT/imagen.jpg" alt="Takiy Cusco Logo" width="300">
+            </div>
+        </div>
+        <h1>TAKIY CUSCO</h1>
+        <p class="slogan">"La música es el lenguaje del alma, ¡cántala con nosotros!"</p>
+    </header>
+    
+    <div class="inca-border"></div>
+    
+    <div class="container">
+        <section class="section">
+            <h2>Sobre Nosotros</h2>
+            <div class="about-us">
+                <div class="about-text">
+                    <p>Takiy Cusco es una escuela de canto dedicada a fomentar la pasión por la música y el desarrollo de habilidades vocales en la comunidad de Cusco.</p>
+                    <p>Nuestro nombre "Takiy" proviene del quechua y significa "cantar", reflejando nuestras raíces culturales y nuestra conexión con la rica tradición musical andina.</p>
+                    <p>Ofrecemos un ambiente acogedor y motivador donde los estudiantes pueden explorar su voz, mejorar su técnica y expresarse creativamente a través del canto.</p>
+                    <p>Nuestros instructores son profesionales experimentados y apasionados por la enseñanza, comprometidos con el crecimiento artístico de cada alumno.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://i.postimg.cc/vTtxS178/cusquito.jpg" alt="Sobre Takiy Cusco" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+            </div>
+        </section>
+        
+        <div class="inca-pattern"></div>
+        
+        <!-- Sección de Programas con id "programas" -->
+        <section id="programas" class="section">
+            <h2>Nuestros Programas</h2>
+
+            <!-- Programa 1: Canto para Niños -->
+            <div class="class-card">
+                <div class="class-content">
+                    <h3>Canto para Niños (8-12 años)</h3>
+                    <p>Un programa diseñado especialmente para los más pequeños, donde aprenderán los fundamentos del canto de forma divertida y dinámica.</p>
+                    <p><strong>Duración:</strong> 45 minutos | <strong>Frecuencia:</strong> 2 veces por semana</p>
+                    <p><strong>Horario:</strong> Lunes y Miércoles de 3:30pm a 4:15pm</p>
+                    <p><strong>Profesor:</strong> María Sánchez</p>
+                </div>
+                <div class="about-imageprograms">
+                    <img src="https://i.postimg.cc/dVmj3WbN/canto-ni-os.png" alt="Canto para Niños" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+            </div>
+
+            <!-- Programa 2: Canto para Adolescentes -->
+            <div class="class-card">
+                <div class="class-content">
+                    <h3>Canto para Adolescentes (13-17 años)</h3>
+                    <p>Programa enfocado en desarrollar la técnica vocal y la expresión artística en jóvenes, adecuado para voces en desarrollo.</p>
+                    <p><strong>Duración:</strong> 60 minutos | <strong>Frecuencia:</strong> 2 veces por semana</p>
+                    <p><strong>Horario:</strong> Martes y Jueves de 4:30pm a 5:30pm</p>
+                    <p><strong>Profesor:</strong> Carlos Huamán</p>
+                </div>
+                <div class="about-imageprograms">
+                    <img src="https://i.postimg.cc/9QD5d7ph/adolescentes.jpg" alt="Canto para Adolescentes" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+            </div>
+
+            <!-- Programa 3: Canto para Adultos -->
+            <div class="class-card">
+                <div class="class-content">
+                    <h3>Canto para Adultos (18+ años)</h3>
+                    <p>Clases completas que abordan técnica respiratoria, proyección vocal, interpretación y estilos musicales diversos.</p>
+                    <p><strong>Duración:</strong> 90 minutos | <strong>Frecuencia:</strong> 2 veces por semana</p>
+                    <p><strong>Horario:</strong> Lunes y Miércoles de 6:00pm a 7:30pm o Sábados de 10:00am a 11:30am</p>
+                    <p><strong>Profesor:</strong> Luis Torres</p>
+                </div>
+                <div class="about-imageprograms">
+                    <img src="https://i.postimg.cc/02WqFs2P/adultos-cusco.jpg" alt="Canto para Adultos" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+            </div>
+
+            <!-- Programa 4: Canto Andino y Tradicional -->
+            <div class="class-card">
+                <div class="class-content">
+                    <h3>Canto Andino y Tradicional</h3>
+                    <p>Aprende las técnicas y estilos propios del canto andino y las tradiciones musicales peruanas.</p>
+                    <p><strong>Duración:</strong> 90 minutos | <strong>Frecuencia:</strong> 1 vez por semana</p>
+                    <p><strong>Horario:</strong> Viernes de 5:00pm a 6:30pm</p>
+                    <p><strong>Profesor:</strong> Rosario Quispe</p>
+                </div>
+                <div class="about-imageprograms">
+                    <img src="https://i.postimg.cc/d0dPhZRV/tradicional.jpg" alt="Canto Andino y Tradicional" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+            </div>
+
+            <!-- Programa 5: Técnica Vocal Avanzada -->
+            <div class="class-card">
+                <div class="class-content">
+                    <h3>Técnica Vocal Avanzada</h3>
+                    <p>Para cantantes con experiencia que desean perfeccionar su técnica y ampliar su rango vocal.</p>
+                    <p><strong>Duración:</strong> 60 minutos | <strong>Frecuencia:</strong> 1 vez por semana</p>
+                    <p><strong>Horario:</strong> Jueves de 7:00pm a 8:00pm</p>
+                    <p><strong>Profesor:</strong> Luis Torres</p>
+                </div>
+                <div class="about-imageprograms">
+                    <img src="https://i.postimg.cc/0jKpvxRF/avanzada.jpg" alt="Técnica Vocal Avanzada" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+            </div>
+        </section>
+        
+        <div class="inca-pattern"></div>
+
+        <!-- Sección de Profesores con id "profesores" -->
+        <section id="profesores" class="section">
+            <h2>Nuestros Profesores</h2>
+            <div class="grid">
+                <!-- Profesor 1: María Sánchez -->
+                <div class="teacher-card">
+                    <div class="teacher-img">
+                        <img src="https://i.postimg.cc/90JDV6Dy/maria.jpg" alt="Profesora María Sánchez" style="width:100%; height:100%; object-fit:cover;">
+                    </div>
+                    <div class="teacher-info">
+                        <h3>María Sánchez</h3>
+                        <p><strong>Especialidad:</strong> Canto para niños, técnica vocal básica</p>
+                        <p>Con más de 10 años de experiencia enseñando música a niños. Graduada del Conservatorio Nacional de Música con especialización en pedagogía musical.</p>
+                    </div>
+                </div>
+                
+                <!-- Profesor 2: Carlos Huamán -->
+                <div class="teacher-card">
+                    <div class="teacher-img">
+                        <img src="https://i.postimg.cc/gJfWh411/carlos.jpg" alt="Profesor Carlos Huamán" style="width:100%; height:100%; object-fit:cover;">
+                    </div>
+                    <div class="teacher-info">
+                        <h3>Carlos Huamán</h3>
+                        <p><strong>Especialidad:</strong> Canto popular, técnica para adolescentes</p>
+                        <p>Cantante profesional con experiencia en diversos géneros. Licenciado en Música por la Universidad Nacional de Música.</p>
+                    </div>
+                </div>
+                
+                <!-- Profesor 3: Luis Torres -->
+                <div class="teacher-card">
+                    <div class="teacher-img">
+                        <img src="https://i.postimg.cc/g2RGK9G4/luis.avif" alt="Profesor Luis Torres" style="width:100%; height:100%; object-fit:cover;">
+                    </div>
+                    <div class="teacher-info">
+                        <h3>Luis Torres</h3>
+                        <p><strong>Especialidad:</strong> Técnica vocal avanzada, interpretación</p>
+                        <p>Ex-cantante de ópera con formación internacional. 15 años de experiencia en pedagogía vocal y director del coro municipal de Cusco.</p>
+                    </div>
+                </div>
+                
+                <!-- Profesor 4: Rosario Quispe -->
+                <div class="teacher-card">
+                    <div class="teacher-img">
+                        <img src="https://i.postimg.cc/6qLmQ0Kr/rosario.jpg" alt="Profesora Rosario Quispe" style="width:100%; height:100%; object-fit:cover;">
+                    </div>
+                    <div class="teacher-info">
+                        <h3>Rosario Quispe</h3>
+                        <p><strong>Especialidad:</strong> Música andina, canto tradicional</p>
+                        <p>Reconocida cantante de música andina con más de 20 años de carrera artística. Experta en técnicas de canto tradicional quechua.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <div class="inca-pattern"></div>
+
+        <!-- Sección de Horario Semanal con id "horarios" -->
+        <section id="horarios" class="section">
+            <h2>Horario Semanal</h2>
+            <div class="schedule">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Hora</th>
+                            <th>Lunes</th>
+                            <th>Martes</th>
+                            <th>Miércoles</th>
+                            <th>Jueves</th>
+                            <th>Viernes</th>
+                            <th>Sábado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>10:00 - 11:30</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>Canto Adultos</td>
+                        </tr>
+                        <tr>
+                            <td>15:30 - 16:15</td>
+                            <td>Canto Niños</td>
+                            <td>-</td>
+                            <td>Canto Niños</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>16:30 - 17:30</td>
+                            <td>-</td>
+                            <td>Canto Adolescentes</td>
+                            <td>-</td>
+                            <td>Canto Adolescentes</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>17:00 - 18:30</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>Canto Andino</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>18:00 - 19:30</td>
+                            <td>Canto Adultos</td>
+                            <td>-</td>
+                            <td>Canto Adultos</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>19:00 - 20:00</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>Técnica Avanzada</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        
+        <div class="inca-pattern"></div>
+
+        <!-- Sección de Precios y Paquetes con id "precios" -->
+        <section id="precios" class="section">
+            <h2>Precios y Paquetes</h2>
+            <div class="grid">
+                <!-- Plan Básico -->
+                <div class="class-card">
+                    <h3>Plan Básico</h3>
+                    <p><strong>Incluye:</strong> 1 clase grupal por semana</p>
+                    <p><strong>Precio mensual:</strong> S/. 150</p>
+                    <p>Ideal para quienes desean iniciarse en el canto o tienen un horario limitado.</p>
+                </div>
+                
+                <!-- Plan Estándar -->
+                <div class="class-card">
+                    <h3>Plan Estándar</h3>
+                    <p><strong>Incluye:</strong> 2 clases grupales por semana</p>
+                    <p><strong>Precio mensual:</strong> S/. 280</p>
+                    <p>Nuestro plan más popular, perfecto para un progreso constante.</p>
+                </div>
+                
+                <!-- Plan Premium -->
+                <div class="class-card">
+                    <h3>Plan Premium</h3>
+                    <p><strong>Incluye:</strong> 2 clases grupales + 1 clase individual por semana</p>
+                    <p><strong>Precio mensual:</strong> S/. 400</p>
+                    <p>Para quienes buscan un progreso acelerado con atención personalizada.</p>
+                </div>
+                
+                <!-- Clases Individuales -->
+                <div class="class-card">
+                    <h3>Clases Individuales</h3>
+                    <p><strong>Duración:</strong> 45 minutos</p>
+                    <p><strong>Precio por clase:</strong> S/. 80</p>
+                    <p>Clases personalizadas adaptadas a tus necesidades específicas.</p>
+                </div>
+            </div>
+        </section>
+        
+    </div>
+    
+    <!-- Sección de CTA con id "inscripcion" -->
+    <div id="inscripcion" class="cta">
+        <div class="container">
+            <h2>¡Inscríbete Ahora!</h2>
+            <p>Comienza tu viaje musical con nosotros y descubre el poder de tu voz.</p>
+            <p>Ofrecemos una clase de prueba gratuita para que conozcas nuestra metodología.</p>
+            <a href="#contacto" class="btn">Solicitar Información</a>
+        </div>
+    </div>
+    
+    <div class="container">
+        <section id="contacto" class="section">
+            <h2>Contacto e Inscripciones</h2>
+            <div class="contact-form">
+                <!-- Indicador de carga que aparecerá mientras se envía el formulario -->
+                <div id="loadingMessage" style="display: none; text-align: center; padding: 20px; margin-bottom: 20px;">
+                    <p>Enviando tu solicitud, por favor espera...</p>
+                </div>
+                
+                <!-- Mensaje de confirmación que aparecerá después del envío exitoso -->
+                <div id="confirmationMessage" style="display: none; text-align: center; padding: 20px; margin-bottom: 20px; background-color: #dff0d8; border: 1px solid #d6e9c6; border-radius: 4px; color: #3c763d;">
+                    <h3>¡Solicitud enviada con éxito!</h3>
+                    <div id="resumenDatos"></div>
+                    <button id="nuevoFormulario" class="btn" style="margin-top: 15px;">Enviar nueva solicitud</button>
+                </div>
+                
+                <form id="inscripcionForm" target="hidden-iframe" method="POST" action="https://script.google.com/a/macros/uandina.edu.pe/s/AKfycbyvOaxAFJnszeIelYqNDaPHKG2JtF-WrF1fW-nvg3POY25oJhqIp5x8Rlugy_7YccjYYA/exec">
+                    <div class="form-group">
+                        <label for="nombre">Nombre completo:</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="edad">Edad:</label>
+                        <input type="number" id="edad" name="edad" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Correo electrónico:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="telefono">Número de teléfono:</label>
+                        <input type="tel" id="telefono" name="telefono" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="programa">Programa de interés:</label>
+                        <select id="programa" name="programa" required>
+                            <option value="">Selecciona un programa</option>
+                            <option value="Canto para Niños">Canto para Niños</option>
+                            <option value="Canto para Adolescentes">Canto para Adolescentes</option>
+                            <option value="Canto para Adultos">Canto para Adultos</option>
+                            <option value="Canto Andino y Tradicional">Canto Andino y Tradicional</option>
+                            <option value="Técnica Vocal Avanzada">Técnica Vocal Avanzada</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="experiencia">Experiencia previa (opcional):</label>
+                        <textarea id="experiencia" name="experiencia"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="comentarios">Preguntas o comentarios adicionales:</label>
+                        <textarea id="comentarios" name="comentarios"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn">Enviar Solicitud</button>
+                </form>
+                
+                <!-- iframe oculto para manejar la respuesta -->
+                <iframe name="hidden-iframe" id="hidden-iframe" style="display:none;"></iframe>
+                
+                <script>
+                // Variable para controlar si el formulario ha sido enviado
+                let formularioEnviado = false;
+                
+                // Función para mostrar el resumen de datos
+                function mostrarResumen() {
+                    const nombre = document.getElementById('nombre').value;
+                    const email = document.getElementById('email').value;
+                    const programa = document.getElementById('programa').value;
+                    
+                    const resumenHTML = `
+                        <p><strong>Nombre:</strong> ${nombre}</p>
+                        <p><strong>Email:</strong> ${email}</p>
+                        <p><strong>Programa seleccionado:</strong> ${programa}</p>
+                        <p>Te contactaremos pronto con más información.</p>
+                    `;
+                    
+                    document.getElementById('resumenDatos').innerHTML = resumenHTML;
+                }
+                
+                // Evento para cuando se envía el formulario
+                document.getElementById('inscripcionForm').addEventListener('submit', function(e) {
+                    // No detenemos el envío, pero marcamos que se ha enviado
+                    formularioEnviado = true;
+                    
+                    // Mostrar el indicador de carga
+                    document.getElementById('loadingMessage').style.display = 'block';
+                    
+                    // Ocultar el formulario mientras se procesa
+                    this.style.display = 'none';
+                    
+                    // Guardar los datos para el resumen
+                    mostrarResumen();
+                    
+                    // El formulario se enviará al iframe oculto
+                });
+                
+                // Evento para cuando el iframe recibe una respuesta
+                document.getElementById('hidden-iframe').addEventListener('load', function() {
+                    // Solo procesar si el formulario ha sido enviado
+                    if (formularioEnviado) {
+                        // Ocultar indicador de carga
+                        document.getElementById('loadingMessage').style.display = 'none';
+                        
+                        // Mostrar mensaje de confirmación con resumen
+                        document.getElementById('confirmationMessage').style.display = 'block';
+                        
+                        // Resetear el formulario
+                        document.getElementById('inscripcionForm').reset();
+                        
+                        // Resetear la bandera
+                        formularioEnviado = false;
+                    }
+                });
+                
+                // Añadir evento para volver al formulario
+                document.getElementById('nuevoFormulario').addEventListener('click', function() {
+                    document.getElementById('confirmationMessage').style.display = 'none';
+                    document.getElementById('inscripcionForm').style.display = 'block';
+                });
+                </script>
+            </div>
+        </section>
+        
+        
+        <div class="inca-pattern"></div>
+        
+        <section class="section">
+            <h2>Ubicación</h2>
+            <p><strong>Dirección:</strong> Av. El Sol 123, Centro Histórico, Cusco</p>
+            <p><strong>Referencia:</strong> A dos cuadras de la Plaza de Armas, frente al Centro Cultural</p>
+            <p><strong>Horario de atención administrativa:</strong> Lunes a Viernes de 9:00am a 7:00pm | Sábados de 9:00am a 1:00pm</p>
+            <div style="height: 400px; margin-top: 1rem; border: 3px solid var(--gold);">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3879.223258437078!2d-71.9772796857187!3d-13.517079690506772!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x916dd605d5b2f8f5%3A0x3c8f1f3b3f3f3f3f!2sPlaza%20de%20Armas%20del%20Cusco!5e0!3m2!1ses!2spe!4v1694567890123!5m2!1ses!2spe"
+                    width="100%"
+                    height="100%"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </section>
+    </div>
+
+    <!-- Botón para abrir el chat -->
+    <button id="chatbot-toggle" class="chatbot-toggle">
+        <img src="https://cdn-icons-png.flaticon.com/512/134/134914.png" alt="Chat" width="30">
+    </button>
+
+    <!-- Interfaz del chatbot -->
+    <div id="chatbot" class="chatbot-container">
+        <div class="chatbot-header">
+            <h3>Chatbot de Takiy Cusco</h3>
+            <button id="chatbot-close" class="chatbot-close">×</button>
+        </div>
+        <div id="chatbot-messages" class="chatbot-messages"></div>
+        <div class="chatbot-input">
+            <input type="text" id="chatbot-input" placeholder="Escribe tu mensaje..." />
+            <button id="chatbot-send">Enviar</button>
+        </div>
+    </div>
+
+    <!-- JavaScript del chatbot -->
+    <script>
+        // Elementos del DOM
+        const chatbotToggle = document.getElementById('chatbot-toggle');
+        const chatbotContainer = document.getElementById('chatbot');
+        const chatbotClose = document.getElementById('chatbot-close');
+        const chatbotMessages = document.getElementById('chatbot-messages');
+        const chatbotInput = document.getElementById('chatbot-input');
+        const chatbotSend = document.getElementById('chatbot-send');
+
+        // Abrir y cerrar el chatbot
+        chatbotToggle.addEventListener('click', () => {
+            chatbotContainer.style.display = 'block';
+        });
+
+        chatbotClose.addEventListener('click', () => {
+            chatbotContainer.style.display = 'none';
+        });
+
+        // Enviar mensaje
+        chatbotSend.addEventListener('click', () => {
+            sendMessage();
+        });
+
+        chatbotInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // Función para enviar mensaje
+        function sendMessage() {
+            const userMessage = chatbotInput.value.trim();
+            if (userMessage) {
+                addMessage('user', userMessage);
+                chatbotInput.value = '';
+                setTimeout(() => {
+                    const botMessage = getBotResponse(userMessage);
+                    addMessage('bot', botMessage);
+                }, 500);
+            }
+        }
+
+        // Función para agregar mensajes al chat
+        function addMessage(sender, message) {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('message', sender);
+            messageElement.textContent = message;
+            chatbotMessages.appendChild(messageElement);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+
+            // Guardar mensaje en Google Sheets
+            saveMessageToSheet(sender, message);
+        }
+
+        // Función para obtener respuesta del bot
+        function getBotResponse(userMessage) {
+            const lowerCaseMessage = userMessage.toLowerCase();
+
+            // Respuestas personalizadas
+            if (lowerCaseMessage.includes('hola') || lowerCaseMessage.includes('buenos días')) {
+                return '¡Hola! 👋 Bienvenido a Takiy Cusco. 😊\n\n¿En qué puedo ayudarte? Puedes preguntarme sobre:\n\n✨ Inscripciones\n🎤 Profesores\n⏰ Horarios\n💲 Precios\n📍 Ubicación';
+            }
+
+            // Inscripciones
+            if (lowerCaseMessage.includes('inscripción') || lowerCaseMessage.includes('inscribirme') || lowerCaseMessage.includes('registrarme')) {
+                return '¡Claro! Para inscribirte, sigue estos pasos: 📝\n\n1. Visita la sección de "Contacto e Inscripciones".\n2. Completa el formulario con tus datos.\n3. ¡Listo! Nos pondremos en contacto contigo.\n\n¿Necesitas más ayuda? 😊';
+            }
+
+            // Profesores
+            if (lowerCaseMessage.includes('profesores') || lowerCaseMessage.includes('instructores')) {
+                return '🎤 Nuestros profesores son expertos en su campo. Aquí tienes la lista:\n\n' +
+                      '👩‍🏫 María Sánchez: Especialista en canto para niños.\n' +
+                      '👨‍🏫 Carlos Huamán: Especialista en canto popular.\n' +
+                      '👨‍🏫 Luis Torres: Especialista en técnica vocal avanzada.\n' +
+                      '👩‍🏫 Rosario Quispe: Especialista en canto andino.\n\n' +
+                      '¿Te gustaría saber más sobre alguno de ellos? 😊';
+            }
+
+            // Horario
+            if (lowerCaseMessage.includes('horario') || lowerCaseMessage.includes('clases')) {
+                return '⏰ Nuestro horario semanal es el siguiente:\n\n' +
+                      '📅 Lunes y Miércoles:\n' +
+                      '  🎵 Canto para Niños: 3:30pm - 4:15pm\n' +
+                      '  🎵 Canto para Adultos: 6:00pm - 7:30pm\n\n' +
+                      '📅 Martes y Jueves:\n' +
+                      '  🎵 Canto para Adolescentes: 4:30pm - 5:30pm\n\n' +
+                      '📅 Viernes:\n' +
+                      '  🎵 Canto Andino: 5:00pm - 6:30pm\n\n' +
+                      '📅 Sábados:\n' +
+                      '  🎵 Canto para Adultos: 10:00am - 11:30am\n\n' +
+                      '¿Necesitas más detalles? 😊';
+            }
+
+            // Precios
+            if (lowerCaseMessage.includes('precio') || lowerCaseMessage.includes('costos') || lowerCaseMessage.includes('tarifas')) {
+                return '💲 Nuestros precios son los siguientes:\n\n' +
+                      '💰 Plan Básico: S/. 150 mensual (1 clase grupal por semana).\n' +
+                      '💰 Plan Estándar: S/. 280 mensual (2 clases grupales por semana).\n' +
+                      '💰 Plan Premium: S/. 400 mensual (2 clases grupales + 1 clase individual por semana).\n' +
+                      '💰 Clases Individuales: S/. 80 por clase.\n\n' +
+                      '¿Te gustaría más información sobre algún plan? 😊';
+            }
+
+            // Ubicación
+            if (lowerCaseMessage.includes('ubicación') || lowerCaseMessage.includes('dirección') || lowerCaseMessage.includes('dónde están')) {
+                return '📍 Estamos ubicados en:\n\n' +
+                      '🏠 Dirección: Av. El Sol 123, Centro Histórico, Cusco.\n' +
+                      '📍 Referencia: A dos cuadras de la Plaza de Armas, frente al Centro Cultural.\n\n' +
+                      'También puedes ver nuestra ubicación en el mapa en la sección "Ubicación" de nuestra página. 😊';
+            }
+
+            // Contacto
+            if (lowerCaseMessage.includes('contacto') || lowerCaseMessage.includes('teléfono') || lowerCaseMessage.includes('email')) {
+                return '📞 Puedes contactarnos de las siguientes formas:\n\n' +
+                      '📱 Teléfono: +51 984 123 456\n' +
+                      '📧 Email: info@takiycusco.com\n' +
+                      '🌐 Redes Sociales: Facebook, Instagram.\n\n' +
+                      '¿En qué más puedo ayudarte? 😊';
+            }
+
+            // Respuesta por defecto
+            return 'Gracias por tu mensaje. 😊\n\nSi tienes alguna pregunta específica, no dudes en preguntarme sobre:\n\n✨ Inscripciones\n🎤 Profesores\n⏰ Horarios\n💲 Precios\n📍 Ubicación';
+        }
+
+        // Función para guardar mensajes en Google Sheets
+        function saveMessageToSheet(sender, message) {
+            const url = 'https://script.google.com/a/macros/uandina.edu.pe/s/AKfycbyvOaxAFJnszeIelYqNDaPHKG2JtF-WrF1fW-nvg3POY25oJhqIp5x8Rlugy_7YccjYYA/exec';
+            const data = new FormData();
+            data.append('sender', sender);
+            data.append('message', message);
+
+            fetch(url, {
+                method: 'POST',
+                body: data
+            });
+        }
+    </script>
+    <footer>
+      <div class="container">
+          <div class="logo-container">
+              <div class="logo">
+                  <img src="https://i.postimg.cc/fRm4mwBT/imagen.jpg" alt="Takiy Cusco Logo" width="200">
+              </div>
+          </div>
+          <p class="slogan">"La música es el lenguaje del alma, ¡cántala con nosotros!"</p>
+          <div class="social-media">
+              <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+              <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+              <a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
+          </div>
+          <div class="footer-links">
+              <a href="#inicio">Inicio</a>
+              <a href="#programas">Programas</a>
+              <a href="#profesores">Profesores</a>
+              <a href="#horarios">Horarios</a>
+              <a href="#precios">Precios</a>
+              <a href="#contacto">Contacto</a>
+          </div>
+          <p>© 2025 Takiy Cusco - Todos los derechos reservados</p>
+          <p>Teléfono: +51 984 123 456 | Email: info@takiycusco.com</p>
+      </div>
+      <!-- Incluye Font Awesome -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  </footer>
+</body>
+</html>
